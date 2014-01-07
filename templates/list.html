@@ -1,0 +1,35 @@
+<div>
+    <input type="text" ng-name="search" ng-model="search" class="search-query" placeholder="Search">
+    <table>
+        <thead>
+            <tr>
+                <th>Rapporto</th>
+                <th>Pedaggio</th>
+                <th><a href="#/new"><i class="icon-plus-sign"></i></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="transito in transiti | filter:search">
+
+                <td><a href="{{transito.rapporto}}" target="_blank">{{transito.rapporto}}</a>
+                </td>
+                <td>{{transito.pedaggio}}</td>
+                <td>
+                    <a href="#/edit/{{transito.rapporto}}"><i class="icon-pencil"></i></a>
+                </td>
+            </tr>
+            <tr ng-repeat-end>
+                <td>
+
+                    <ul ng-if="$index == 0">
+                        <li>Informativa sul servizio</li>
+                        <li>Informativa sulle società registrate al servizio</li>
+                    </ul>
+                    <td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

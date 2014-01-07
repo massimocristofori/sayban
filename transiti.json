@@ -1,0 +1,12 @@
+[
+    {
+        "rapporto": 0,
+        "pedaggio": 3.50,
+        "active": false
+    }, 
+    {
+        "rapporto": 1,
+        "pedaggio": 2.70,
+        "active": false
+    }
+]
