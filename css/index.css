@@ -80,7 +80,8 @@ body {
 }
 
 .event.received {
-    background-color:#4B946A;
+    /*background-color:#4B946A;*/
+    background-color:#333333;
     display:none;
 }
 
