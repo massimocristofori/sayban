@@ -31,25 +31,19 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center">
-            SAYBAN
-        </h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening text-center">take a gorgeous Sayban please ;)</p>
-            <p class="event received text-center">take a gorgeous Sayban please ;)</p>
-
+        <div class="jumbotron">
+            <h1 class="text-center">
+                SAYBAN
+            </h1>
+            <p class="text-center">
+                take a gorgeous Sayban please ;)
+            </p>
+            
+                <div class="thumbnail">
+                    <img id="saybanImage" data-src="../img/300x200.png" style="width: 300px; height: 200px;" onclick="capturePhotoEdit();"/>
+                </div>
+            
         </div>
-
-        <p class="text-center">
-            <button class="btn btn-lg btn-primary" onclick="capturePhotoEdit();">
-
-                <span class="glyphicon glyphicon-camera"></span>
-
-            </button>
-        </p>
-        <p class="text-center">
-            <img id="smallImage" class="img-thumbnail img-responsive" alt="A generic square placeholder image with a white border around it, making it resemble a photograph taken with an old instant camera">
-        </p>
 
     </div>
     <script type="text/javascript" src="phonegap.js"></script>

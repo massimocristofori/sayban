@@ -18,14 +18,14 @@ function onPhotoDataSuccess(imageData) {
     // console.log(imageData);
     // Get image handle
     //
-    var smallImage = document.getElementById('smallImage');
+    var saybanImage = document.getElementById('saybanImage');
     // Unhide image elements
     //
-    smallImage.style.display = 'block';
+    saybanImage.style.display = 'block';
     // Show the captured photo
     // The in-line CSS rules are used to resize the image
     //
-    smallImage.src = "data:image/jpeg;base64," + imageData;
+    saybanImage.src = "data:image/jpeg;base64," + imageData;
 }
 // Called when a photo is successfully retrieved
 //
