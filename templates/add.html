@@ -2,22 +2,25 @@
     <table>
         <thead>
             <tr>
-                <th>Add a beautiful Sayban ;)</th>
+                <th>YOU FOUND OUT A NEW SAYBAN!</th>
             </tr>
         </thead>
         <tbody>
 
             <tr>
-                <td><img style="display:none;width:60px;height:60px;" id="smallImage" src="" /></td>
+                <td><img class="saybanImage" id="saybanImage" src="" /></td>
             </tr>
             <tr>
-                <td><button onclick="capturePhotoEdit();">Capture Editable Photo</button></td>
+                <td>lat: {{currentLatitude}}    long: {{currentLongitude}}</td>
             </tr>
             <tr>
-                <td><input type="text" ng-name="artist" ng-model="artist" size="30" class="search-query" placeholder="Artist ..."></td>
+                <td><input type="text" ng-name="newSaybanName" ng-model="newSaybanName" size="30" class="search-query" placeholder="Name ..."></td>
             </tr>
             <tr>
-                <td><input type="text" ng-name="artist" ng-model="artist" size="30" class="search-query" placeholder="Subject ..."></td>
+                <td>add this sayban right now :)</td>
+            </tr>
+            <tr>
+                <td>no thanks. lets me go back plase</td>
             </tr>
         </tbody>
     </table>

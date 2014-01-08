@@ -18,8 +18,8 @@ sayban.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'templates/add.html',
         controller: 'addCntrl'
     })
-    .when('/payment', {
-        templateUrl: 'templates/payment.html'
+    .when('/detail', {
+        templateUrl: 'templates/detail.html'
     })
     .otherwise({ 
         redirectTo: '/home' 
