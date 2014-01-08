@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html ng-app="sayban">
 
 <head>
     <meta charset="utf-8" />
@@ -35,36 +35,22 @@
             <h1 class="text-center">
                 SAYBAN
             </h1>
-            <p class="text-center blink">
-                take a gorgeous Sayban please ;)
-            </p>
-
-            <div class="panel panel-default text-center" style="width: 300px; height: 300px; margin-left: auto; margin-right: auto" onclick="capturePhotoEdit();">
-
-                <img id="saybanImage" />
-
+            <div ng-view>
             </div>
+            
 
-            <p class="text-center">
-                <a class="btn btn-large btn-success" href="">
-                    <i class="glyphicon glyphicon-ok"></i>
-                    Add this Sayban right now :)
-                </a>
-            </p>
-
-            <p class="text-center">
-                <a class="btn btn-large btn-danger" href="">
-                    <i class="icon-github-sign"></i>
-                    Thanks, but let's me go back!
-                </a>
-            </p>
+            
 
         </div>
 
     </div>
     <script type="text/javascript" src="phonegap.js"></script>
-    <script type="text/javascript" src="js/add.js"></script>
+    
     <script type="text/javascript" src="js/index.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
     <script type="text/javascript">
         app.initialize();
     </script>

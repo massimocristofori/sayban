@@ -18,6 +18,8 @@ function onPhotoDataSuccess(imageData) {
     // console.log(imageData);
     // Get image handle
     //
+    //
+    $location.path( "/add" );
     var saybanImage = document.getElementById('saybanImage');
     // Unhide image elements
     //
@@ -58,6 +60,8 @@ function capturePhoto() {
 //
 
 function capturePhotoEdit() {
+    alert("max");
+    $location.path( "#/add" );
     // Take picture using device camera, allow edit, and retrieve image as base64-encoded string
     navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
         quality: 20,
