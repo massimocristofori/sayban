@@ -21,12 +21,13 @@ myCntrl.controller('homeCntrl', ['$scope', '$http', '$location',
             $http.get('/list/');
         };
         $scope.capturePhotoEdit = function() {
-            
+            alert("capture");
             navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
                 quality: 20,
                 allowEdit: true,
                 destinationType: destinationType.DATA_URL
             });
+            alert("capture end");
         }
 
         $scope.onFail = function(message) {
