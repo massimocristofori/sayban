@@ -79,14 +79,13 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
                 
                 //saybanImage.style.display = 'block';
                 //saybanImage.src = "data:image/jpeg;base64," + imageData;
-                $scope.saybanImage = "data:image/jpeg;base64," + imageData;
+                $scope.saybanImage = imageData;
                 alert("onphoto:" + $scope.saybanImage);
             }, function(message) {
                 alert('Failed because: ' + message);
             }, {
                 quality: 20,
-                allowEdit: true,
-                destinationType : 1
+                allowEdit: true
             });
         }
         
