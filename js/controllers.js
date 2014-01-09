@@ -21,7 +21,6 @@ saybanCntrl.factory('camera', function($rootScope, phonegapReady) {
     return {
         capturePhoto: phonegapReady(function(onSuccess, onError, options) {
             navigator.camera.getPicture(function() {
-                alert('phonegapReady factory ');
                 var that = this;
                 args = arguments;
                 alert('onsuccess: ');
@@ -43,9 +42,9 @@ saybanCntrl.factory('camera', function($rootScope, phonegapReady) {
         })
     };
 });
-saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location', 'camera',
-    function($scope, $http, $location, camera) {
-        $scope.search = "";
+saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location', 
+    function($scope, $http, $location) {
+        /*$scope.search = "";
         $http.get("transiti.json").then(function(response) {
             $scope.informative = response.data;
         });
@@ -57,9 +56,32 @@ saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location', 'camera',
             camera.capturePhoto(function(imageData) {
                 alert("onphoto");
                 $location.path("/add");
-                var saybanImage = document.getElementById('saybanImage');
+                
+                $scope.saybanImage = "data:image/jpeg;base64," + imageData;
+            }, function(message) {
+                alert('Failed because: ' + message);
+            }, {
+                quality: 20,
+                allowEdit: true
+            });
+            alert("capture end");
+        }*/
+    }
+]);
+
+saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
+    function($scope, $http, $location, camera) {
+        $scope.saybanImage = "";
+
+        $scope.capturePhotoEdit = function() {
+            alert("capture " + navigator);
+            camera.capturePhoto(function(imageData) {
+                alert("onphoto");
+                $location.path("/add");
+                /*var saybanImage = document.getElementById('saybanImage');
                 saybanImage.style.display = 'block';
-                saybanImage.src = "data:image/jpeg;base64," + imageData;
+                saybanImage.src = "data:image/jpeg;base64," + imageData;*/
+                $scope.saybanImage = "data:image/jpeg;base64," + imageData;
             }, function(message) {
                 alert('Failed because: ' + message);
             }, {
