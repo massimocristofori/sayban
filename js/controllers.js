@@ -85,7 +85,8 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
                 alert('Failed because: ' + message);
             }, {
                 quality: 20,
-                allowEdit: true
+                allowEdit: true,
+                destinationType : 1
             });
         }
         
