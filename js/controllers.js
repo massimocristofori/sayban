@@ -39,7 +39,31 @@ saybanCntrl.factory('camera', function($rootScope, phonegapReady) {
         })
     };
 });
-saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location', 
+saybanCntrl.factory('geolocation', function($rootScope, phonegapReady) {
+    return {
+        getCurrentPosition: phonegapReady(function(onSuccess, onError, options) {
+            navigator.geolocation.getCurrentPosition(function() {
+                    var that = this,
+                        args = arguments;
+                    if(onSuccess) {
+                        $rootScope.$apply(function() {
+                            onSuccess.apply(that, args);
+                        });
+                    }
+                }, function() {
+                    var that = this,
+                        args = arguments;
+                    if(onError) {
+                        $rootScope.$apply(function() {
+                            onError.apply(that, args);
+                        });
+                    }
+                },
+                options);
+        })
+    };
+});
+saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location',
     function($scope, $http, $location) {
         /*$scope.search = "";
         $http.get("transiti.json").then(function(response) {
@@ -65,22 +89,20 @@ saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location',
         }*/
     }
 ]);
-
-saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
-    function($scope, $http, $location, camera) {
-        $scope.saybanImage = "http://angularjs.org/img/AngularJS-large.png";
-
+saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'geolocation',
+    function($scope, $http, $location, camera, geolocation) {
+        $scope.saybanImage = "";
+        $scope.currentLatitude = "";
+        $scope.currentLongitude = "";
+        $scope.currentTimestamp = "";
         $scope.capturePhoto = function() {
-            var saybanImage = document.getElementById('saybanImage');
-            alert("capture " + saybanImage.src);
             camera.capturePhoto(function(imageData) {
-                alert("onphoto");
-                
-                
-                //saybanImage.style.display = 'block';
-                //saybanImage.src = "data:image/jpeg;base64," + imageData;
                 $scope.saybanImage = imageData;
-                alert("onphoto:" + $scope.saybanImage);
+                geolocation.getCurrentPosition(function(position) {
+                    $scope.currentLatitude = position.coords.latitude;
+                    $scope.currentLongitude = position.coords.longitude;
+                    $scope.currentTimestamp = position.timestamp;
+                });
             }, function(message) {
                 alert('Failed because: ' + message);
             }, {
@@ -88,7 +110,5 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
                 allowEdit: true
             });
         }
-        
-        
     }
 ]);
