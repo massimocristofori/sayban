@@ -27,7 +27,7 @@ saybanCntrl.factory('camera', function($rootScope, phonegapReady) {
                 alert('onsuccess: ');
                 if(onSuccess) {
                     $rootScope.$apply(function() {
-                        onPhotoSuccess.apply(that, args);
+                        onSuccess.apply(that, args);
                     });
                 }
             }, function() {
