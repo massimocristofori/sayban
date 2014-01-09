@@ -1,7 +1,6 @@
 var saybanCntrl = angular.module('saybanCntrl', []);
 saybanCntrl.factory('phonegapReady', function($rootScope) {
     return function(fn) {
-        alert('phonegapReady factory ');
         var queue = [];
         var impl = function() {
             queue.push(Array.prototype.slice.call(arguments));
@@ -23,7 +22,6 @@ saybanCntrl.factory('camera', function($rootScope, phonegapReady) {
             navigator.camera.getPicture(function() {
                 var that = this;
                 args = arguments;
-                alert('onsuccess: ');
                 if(onSuccess) {
                     $rootScope.$apply(function() {
                         onSuccess.apply(that, args);
@@ -32,7 +30,6 @@ saybanCntrl.factory('camera', function($rootScope, phonegapReady) {
             }, function() {
                 var that = this;
                 args = arguments;
-                alert('Failed because: ');
                 if(onError) {
                     $rootScope.$apply(function() {
                         onError.apply(that, args);
@@ -71,7 +68,7 @@ saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location',
 
 saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
     function($scope, $http, $location, camera) {
-        $scope.saybanImage = "";
+        $scope.saybanImage = "http://angularjs.org/img/AngularJS-large.png";
 
         $scope.capturePhoto = function() {
             var saybanImage = document.getElementById('saybanImage');
@@ -80,8 +77,8 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
                 alert("onphoto");
                 
                 
-                saybanImage.style.display = 'block';
-                saybanImage.src = "data:image/jpeg;base64," + imageData;
+                //saybanImage.style.display = 'block';
+                //saybanImage.src = "data:image/jpeg;base64," + imageData;
                 $scope.saybanImage = "data:image/jpeg;base64," + imageData;
                 alert("onphoto:" + $scope.saybanImage);
             }, function(message) {
@@ -90,7 +87,6 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
                 quality: 20,
                 allowEdit: true
             });
-            alert("capture end");
         }
         
         
