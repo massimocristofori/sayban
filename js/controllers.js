@@ -79,9 +79,9 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
             camera.capturePhoto(function(imageData) {
                 alert("onphoto");
                 
-                /*var saybanImage = document.getElementById('saybanImage');
+                
                 saybanImage.style.display = 'block';
-                saybanImage.src = "data:image/jpeg;base64," + imageData;*/
+                saybanImage.src = "data:image/jpeg;base64," + imageData;
                 $scope.saybanImage = "data:image/jpeg;base64," + imageData;
                 alert("onphoto:" + $scope.saybanImage);
             }, function(message) {
