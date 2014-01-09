@@ -77,11 +77,12 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
             alert("capture " + navigator);
             camera.capturePhoto(function(imageData) {
                 alert("onphoto");
-                $location.path("/add");
+                
                 /*var saybanImage = document.getElementById('saybanImage');
                 saybanImage.style.display = 'block';
                 saybanImage.src = "data:image/jpeg;base64," + imageData;*/
                 $scope.saybanImage = "data:image/jpeg;base64," + imageData;
+                alert("onphoto:" + $scope.saybanImage);
             }, function(message) {
                 alert('Failed because: ' + message);
             }, {
