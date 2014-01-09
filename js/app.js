@@ -1,4 +1,4 @@
-var sayban = angular.module('sayban', ['ngRoute', 'myCntrl']);
+var sayban = angular.module('sayban', ['ngRoute', 'saybanCntrl']);
 
 sayban.config(['$routeProvider', function($routeProvider) {
     $routeProvider
