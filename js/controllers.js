@@ -1,6 +1,7 @@
 var saybanCntrl = angular.module('saybanCntrl', []);
 saybanCntrl.factory('phonegapReady', function($rootScope) {
     return function(fn) {
+        alert('phonegapReady factory ');
         var queue = [];
         var impl = function() {
             queue.push(Array.prototype.slice.call(arguments));
@@ -20,6 +21,7 @@ saybanCntrl.factory('camera', function($rootScope, phonegapReady) {
     return {
         capturePhoto: phonegapReady(function(onSuccess, onError, options) {
             navigator.camera.getPicture(function() {
+                alert('phonegapReady factory ');
                 var that = this;
                 args = arguments;
                 alert('onsuccess: ');
@@ -62,8 +64,7 @@ saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location', 'camera',
                 alert('Failed because: ' + message);
             }, {
                 quality: 20,
-                allowEdit: true,
-                destinationType: destinationType.DATA_URL
+                allowEdit: true
             });
             alert("capture end");
         }
