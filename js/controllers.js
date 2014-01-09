@@ -73,7 +73,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
     function($scope, $http, $location, camera) {
         $scope.saybanImage = "";
 
-        $scope.capturePhotoEdit = function() {
+        $scope.capturePhoto = function() {
             alert("capture " + navigator);
             camera.capturePhoto(function(imageData) {
                 alert("onphoto");
@@ -90,5 +90,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
             });
             alert("capture end");
         }
+        
+        
     }
 ]);
