@@ -1,41 +1,24 @@
 <div ng-init="capturePhoto()">
-    <table>
-        <thead>
-            <tr>
-                <th>YOU FOUND OUT A NEW SAYBAN!</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-                <td><img id="saybanImage" ng-src="{{saybanImage}}" style="width: 300px; height: 300px; display: block" ng-click="capturePhoto()" ></td>
-            </tr>
-            <tr>
-                <td>time: {{currentTimestamp}}    lat: {{currentLatitude}}    long: {{currentLongitude}}</td>
-            </tr>
-            <tr>
-                <td><input type="text" ng-name="newSaybanName" ng-model="newSaybanName" size="30" class="search-query" placeholder="Name ..."></td>
-            </tr>
-            <tr>
-                <td>add this sayban right now :)</td>
-            </tr>
-            <tr>
-                <td>no thanks. lets me go back plase</td>
-            </tr>
-        </tbody>
-    </table>
+    <p class="text-center">YOU FOUND OUT A NEW SAYBAN!</p>
     <p class="text-center">
-                <a class="btn btn-large btn-success" href="">
-                    <i class="glyphicon glyphicon-ok"></i>
-                    Add this Sayban right now :)
-                </a>
-            </p>
+        <img id="saybanImage" ng-src="{{saybanImage}}" style="width: 300px; height: 300px; display: block" ng-click="capturePhoto()">
+    </p>
+    <p class="text-center">time: {{currentTimestamp}} lat: {{currentLatitude}} long: {{currentLongitude}}</p>
+    <p class="text-center">
+        <input type="text" ng-name="newSaybanName" ng-model="newSaybanName" size="30" class="search-query" placeholder="Name ...">
+    </p>
+    <p class="text-center">
+        <a class="btn btn-large btn-success" href="" ng-show="captured">
+            <i class="glyphicon glyphicon-ok"></i>
+            Add this Sayban right now :)
+        </a>
+    </p>
 
-            <p class="text-center">
-                <a class="btn btn-large btn-danger" href="">
-                    <i class="icon-github-sign"></i>
-                    Thanks, but let's me go back!
-                </a>
-            </p>
+    <p class="text-center">
+        <a class="btn btn-large btn-danger" href="">
+            <i class="icon-github-sign"></i>
+            Thanks, but let's me go back!
+        </a>
+    </p>
 
 </div>

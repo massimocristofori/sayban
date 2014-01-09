@@ -91,6 +91,7 @@ saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location',
 ]);
 saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'geolocation',
     function($scope, $http, $location, camera, geolocation) {
+        $scope.captured = false;
         $scope.saybanImage = "";
         $scope.currentLatitude = "";
         $scope.currentLongitude = "";
@@ -103,8 +104,9 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
                     $scope.currentLongitude = position.coords.longitude;
                     $scope.currentTimestamp = position.timestamp;
                 });
+                $scope.captured = true;
             }, function(message) {
-                alert('Failed because: ' + message);
+                $location.path("/home");
             }, {
                 quality: 20,
                 allowEdit: true
