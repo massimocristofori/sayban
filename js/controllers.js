@@ -71,10 +71,11 @@ saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location',
 
 saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera',
     function($scope, $http, $location, camera) {
-        $scope.saybanImage = "max";
+        $scope.saybanImage = "";
 
         $scope.capturePhoto = function() {
-            alert("capture " + navigator);
+            var saybanImage = document.getElementById('saybanImage');
+            alert("capture " + saybanImage.src);
             camera.capturePhoto(function(imageData) {
                 alert("onphoto");
                 
