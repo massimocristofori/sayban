@@ -115,23 +115,20 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
         $scope.uploadPhoto =
         function() {
             alert($scope.saybanImage);
-            alert(FileTransferError.FILE_NOT_FOUND_ERR);
-            alert(FileTransferError.INVALID_URL_ERR);
-            alert(FileTransferError.CONNECTION_ERR);
-            alert(FileTransferError.ABORT_ERR);
+            
             var options = new FileUploadOptions();
             
             options.fileKey = "file";
             options.fileName = $scope.saybanImage.substr($scope.saybanImage.lastIndexOf('/') + 1);
             options.mimeType = "image/jpeg";
-            alert(options);
+           
             /*var params = {};
             params.value1 = "test";
             params.value2 = "param";
             options.params = params;*/
             
             var ft = new FileTransfer();
-            alert(encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/default"));
+            
             ft.upload($scope.saybanImage, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/default"),
                 function win(r) {
                     alert("Code = " + r.responseCode);
@@ -143,6 +140,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
                     alert("An error has occurred: Code = " + error.code);
                     alert("upload error source " + error.source);
                     alert("upload error target " + error.target);
+                    alert("upload error status " + error.http_status);
                 }, options);
             alert("end upload");
         }
