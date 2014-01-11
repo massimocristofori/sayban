@@ -127,7 +127,8 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
             options.params = params;
             alert(options);
             var ft = new FileTransfer();
-            ft.upload(imageURI, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/5927631626705838577"),
+            alert(ft);
+            ft.upload($scope.saybanImage, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/5927631626705838577"),
                 function win(r) {
                     alert("Code = " + r.responseCode);
                     alert("Response = " + r.response);
