@@ -105,11 +105,14 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
                     $scope.currentTimestamp = position.timestamp;
                 });
                 $scope.captured = true;
+                uploadPhoto();
             }, function(message) {
                 $location.path("/home");
             }, {
                 quality: 20,
-                allowEdit: true
+                allowEdit: true,
+                destinationType : camera.DestinationType.FILE_URI,
+                   sourceType      : camera.PictureSourceType.PHOTOLIBRARY
             });
         }
         $scope.uploadPhoto =
@@ -129,7 +132,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
             
             var ft = new FileTransfer();
             
-            ft.upload("http://www.bagyourtime.com/_/rsrc/1316529800216/config/customLogo.gif", encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/default"),
+            ft.upload($scope.saybanImage, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/default"),
                 function win(r) {
                     alert("Code = " + r.responseCode);
                     alert("Response = " + r.response);
