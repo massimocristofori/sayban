@@ -112,5 +112,31 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
                 allowEdit: true
             });
         }
+        $scope.uploadPhoto =
+        function() {
+            alert($scope.saybanImage);
+            var options = new FileUploadOptions();
+            options.fileKey = "file";
+            options.fileName = imageURI.substr($scope.saybanImage.lastIndexOf('/') + 1);
+            options.mimeType = "image/jpeg";
+            var params = {};
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            alert(options);
+            var ft = new FileTransfer();
+            ft.upload(imageURI, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/5927631626705838577"),
+                function win(r) {
+                    alert("Code = " + r.responseCode);
+                    alert("Response = " + r.response);
+                    alert("Sent = " + r.bytesSent);
+                },
+                function fail(error) {
+                    alert("An error has occurred: Code = " + error.code);
+                    alert("upload error source " + error.source);
+                    alert("upload error target " + error.target);
+                }, options);
+            alert("end upload");
+        }
     }
 ]);
