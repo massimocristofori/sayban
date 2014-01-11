@@ -116,9 +116,9 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
         function() {
             alert($scope.saybanImage);
             var options = new FileUploadOptions();
-            alert(options);
+            alert($scope.saybanImage.lastIndexOf('/'));
             options.fileKey = "file";
-            options.fileName = imageURI.substr($scope.saybanImage.lastIndexOf('/') + 1);
+            options.fileName = $scope.saybanImage.substr($scope.saybanImage.lastIndexOf('/') + 1);
             options.mimeType = "image/jpeg";
             alert(options);
             var params = {};
