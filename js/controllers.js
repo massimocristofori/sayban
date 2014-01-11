@@ -105,7 +105,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
                     $scope.currentTimestamp = position.timestamp;
                 });
                 $scope.captured = true;
-                uploadPhoto();
+                $scope.uploadPhoto();
             }, function(message) {
                 $location.path("/home");
             }, {
