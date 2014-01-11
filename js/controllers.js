@@ -128,6 +128,9 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
             params.value1 = "test";
             params.value2 = "param";
             options.params = params;*/
+            var headers={'Slug':options.fileName};
+
+options.headers = headers;
             
             var ft = new FileTransfer();
             
