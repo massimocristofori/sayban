@@ -115,6 +115,10 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
         $scope.uploadPhoto =
         function() {
             alert($scope.saybanImage);
+            alert(FileTransferError.FILE_NOT_FOUND_ERR);
+            alert(FileTransferError.INVALID_URL_ERR);
+            alert(FileTransferError.CONNECTION_ERR);
+            alert(FileTransferError.ABORT_ERR);
             var options = new FileUploadOptions();
             
             options.fileKey = "file";
