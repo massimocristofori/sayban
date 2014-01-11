@@ -122,7 +122,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
             
             options.fileKey = "file";
             options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-            options.mimeType = "image/gif";
+            options.mimeType = "image/jpg";
            alert(options.fileName);
             /*var params = {};
             params.value1 = "test";
