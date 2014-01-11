@@ -105,7 +105,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
                     $scope.currentTimestamp = position.timestamp;
                 });
                 $scope.captured = true;
-                $scope.uploadPhoto(imageData);
+                
             }, function(message) {
                 $location.path("/home");
             }, {
@@ -115,14 +115,14 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
             });
         }
         $scope.uploadPhoto =
-        function(imageURI) {
-            alert(imageURI);
+        function() {
+            alert($scope.saybanImage);
             
             var options = new FileUploadOptions();
             
             options.fileKey = "file";
-            options.fileName = imageURI.substr(imageURI.lastIndexOf('/') + 1);
-            options.mimeType = "image/jpg";
+            options.fileName = $scope.saybanImage.substr($scope.saybanImage.lastIndexOf('/') + 1);
+            options.mimeType = "image/jpeg";
            alert(options.fileName);
             /*var params = {};
             params.value1 = "test";
@@ -131,7 +131,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
             
             var ft = new FileTransfer();
             
-            ft.upload(imageURI, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/default"),
+            ft.upload($scope.saybanImage, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/5408426599016573825"),
                 function win(r) {
                     alert("Code = " + r.responseCode);
                     alert("Response = " + r.response);
