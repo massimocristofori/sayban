@@ -132,7 +132,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
 
 options.headers = headers;
             
-            var ft = new FileTransfer();
+            /*var ft = new FileTransfer();
             
             ft.upload($scope.saybanImage, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/5408426599016573825"),
                 function win(r) {
@@ -147,7 +147,29 @@ options.headers = headers;
                     alert("upload error target " + error.target);
                     alert("upload error status " + error.http_status);
                 }, options);
-            alert("end upload");
+            alert("end upload");*/
+            // Insert your Dropbox app key here:
+var DROPBOX_APP_KEY = '98whfs73yn2i3sj';
+
+
+// Exposed for easy access in the browser console.
+var client = new Dropbox.Client({key: DROPBOX_APP_KEY});
+
+// Try to finish OAuth authorization.
+client.authenticate({interactive: false}, function (error) {
+    if (error) {
+        alert('Authentication error: ' + error);
+    }
+});
+
+if (client.isAuthenticated()) {
+    // Client is authenticated. Display UI.
+alert("auth!");
+}
+
+
+
+
         }
     }
 ]);
