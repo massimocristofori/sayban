@@ -1,8 +1,8 @@
-
 <html>
 <head>
     <title></title>
     <script>
+function todo() {
     var ua = navigator.userAgent;
         var checker = {
             iphone : ua.match(/iPhone/),
@@ -14,10 +14,10 @@
             document.getElementById("todo").innerHTML = "hey marco! vai alla pagina: (numero mondiali vinti dall'italia) * (numero mondiali persi in finale dall'italia).html";
         } else {
             document.getElementById("todo").innerHTML = "forbone!!!! questa pagina e' visibile solo da un ipad :P";
-        }
+        }}
     </script>
 </head>
-<body>
+<body onload="todo">
 <p id="todo">
     
     </p>
