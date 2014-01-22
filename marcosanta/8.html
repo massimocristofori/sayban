@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title></title>
+    <script>
+function todo() {
+    var ua = navigator.userAgent;
+        var checker = {
+            iphone : ua.match(/iPhone/),
+            ipad : ua.match(/iPad/),
+            android : ua.match(/android/)
+        };
+        
+        if (checker.iphone) {
+            document.getElementById("todo").innerHTML = "mmmmm ben fatto, google ti ha aiutato :)! Ora Manda un sms al 3487002838 con scritto la somma della tua eta' + quella della ale + la mia + il numero di goal che hai fatto quest'anno";
+        } else {
+            document.getElementById("todo").innerHTML = "forbone!!!! questa pagina e' visibile solo da un iphone :P";
+        }}
+    </script>
+</head>
+<body onload="todo()">
+<p id="todo">
+    
+    </p>
+    
+    
+</body>
+</html>
