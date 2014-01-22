@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title></title>
+    <script>
+function todo() {
+    var ua = navigator.userAgent;
+        var checker = {
+            iphone : ua.match(/iPhone/),
+            ipad : ua.match(/iPad/),
+            android : ua.match(/android/)
+        };
+        
+        if (checker.android) {
+            document.getElementById("todo").innerHTML = "bravo marco! Ti sei guadagnato i regali!!  Non ti resta che trovarli :) sono tutti rinchiusi nello stesso posto, che e' di fatto il posto piu' asciutto che c'e'. Ancora non hai capito? Ok altro indizio, quale elettrodomestico serve per asciugare? E quale e' abbastanza capiente da poter contenere dei regali? .... Ciaoooooooooooo";
+        } else {
+            document.getElementById("todo").innerHTML = "furbacchione!!!! questa pagina e' visibile solo da un android :P";
+        }}
+    </script>
+</head>
+<body onload="todo()">
+<p id="todo">
+    
+    </p>
+    
+    
+</body>
+</html>
