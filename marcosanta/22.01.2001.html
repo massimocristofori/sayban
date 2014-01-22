@@ -1,0 +1,27 @@
+
+<html>
+<head>
+    <title></title>
+    <script>
+    var ua = navigator.userAgent;
+        var checker = {
+            iphone : ua.match(/iPhone/),
+            ipad : ua.match(/iPad/),
+            android : ua.match(/android/)
+        };
+        
+        if (checker.ipad) {
+            document.getElementById("todo").innerHTML = "hey marco! vai alla pagina: (numero mondiali vinti dall'italia) * (numero mondiali persi in finale dall'italia).html";
+        } else {
+            document.getElementById("todo").innerHTML = "forbone!!!! questa pagina e' visibile solo da un ipad :P";
+        }
+    </script>
+</head>
+<body>
+<p id="todo">
+    
+    </p>
+    
+    
+</body>
+</html>

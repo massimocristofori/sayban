@@ -91,7 +91,7 @@ saybanCntrl.controller('homeCntrl', ['$scope', '$http', '$location',
 ]);
 saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'geolocation',
     function($scope, $http, $location, camera, geolocation) {
-        $scope.captured = false;
+        $scope.captured = true;
         $scope.saybanImage = "";
         $scope.currentLatitude = "";
         $scope.currentLongitude = "";
@@ -116,7 +116,7 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
         }
         $scope.uploadPhoto =
         function() {
-            alert($scope.saybanImage);
+            /*alert($scope.saybanImage);
             
             var options = new FileUploadOptions();
             
@@ -124,15 +124,15 @@ saybanCntrl.controller('addCntrl', ['$scope', '$http', '$location', 'camera', 'g
             options.fileName = $scope.saybanImage.substr($scope.saybanImage.lastIndexOf('/') + 1);
             options.mimeType = "image/jpeg";
            alert(options.fileName);
-            /*var params = {};
+            var params = {};
             params.value1 = "test";
             params.value2 = "param";
-            options.params = params;*/
+            options.params = params;
             var headers={'Slug':options.fileName};
 
 options.headers = headers;
             
-            /*var ft = new FileTransfer();
+            var ft = new FileTransfer();
             
             ft.upload($scope.saybanImage, encodeURI("https://picasaweb.google.com/data/feed/api/user/massimo.cristofori/albumid/5408426599016573825"),
                 function win(r) {
@@ -150,18 +150,19 @@ options.headers = headers;
             alert("end upload");*/
             // Insert your Dropbox app key here:
 var DROPBOX_APP_KEY = '98whfs73yn2i3sj';
-
+alert("000");
 
 // Exposed for easy access in the browser console.
 var client = new Dropbox.Client({key: DROPBOX_APP_KEY});
-
+            alert("111:" + client);
+            client.authenticate();
 // Try to finish OAuth authorization.
 client.authenticate({interactive: false}, function (error) {
     if (error) {
         alert('Authentication error: ' + error);
     }
 });
-
+alert("222");
 if (client.isAuthenticated()) {
     // Client is authenticated. Display UI.
 alert("auth!");
