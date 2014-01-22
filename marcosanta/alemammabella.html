@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title></title>
+    <script>
+function todo() {
+    var ua = navigator.userAgent;
+        var checker = {
+            iphone : ua.match(/iPhone/),
+            ipad : ua.match(/iPad/),
+            android : ua.match(/android/)
+        };
+        
+        if (checker.ipad) {
+            document.getElementById("todo").innerHTML = "allora, con i numeri ci sai fare! Ora vai all'ultima pagina, ma occhio al device :): (numero di campanelli all'ingresso di casa tua) * (numero autobus che ferma sottocasa) + (misura giroculo ale, in cm).html";
+        } else {
+            document.getElementById("todo").innerHTML = "furbetto!!!! questa pagina e' visibile solo da un ipad :P";
+        }}
+    </script>
+</head>
+<body onload="todo()">
+<p id="todo">
+    
+    </p>
+    
+    
+</body>
+</html>
